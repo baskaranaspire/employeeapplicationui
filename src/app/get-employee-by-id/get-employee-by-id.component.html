@@ -1,0 +1,21 @@
+<div class="container">
+    <br />
+    <h3>Employee Details</h3>
+    <br />
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col">
+            <h4>{{ employee.name }}</h4>
+          </div>
+          <div class="col text-right">
+            <a href="#" routerLink="/Employee/list" class="btn btn-secondary btn-sm">Back To Employees List</a>
+          </div>
+        </div>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><b>Name:</b> &nbsp;&nbsp;&nbsp; <div [innerHTML] = "employee.name"></div></li>
+        <li class="list-group-item"><b>Age&nbsp;&nbsp;:</b> &nbsp;&nbsp;&nbsp; {{ employee.age }}</li>
+      </ul>
+    </div>
+  </div>

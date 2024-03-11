@@ -1,0 +1,29 @@
+<div class="container">
+    <br />
+    <div class="row">
+      <div class="col">
+        <h3>Employees</h3>
+      </div>
+      <div class="col text-right">
+        <a href="#" routerLink="/Employee/create/" routerLinkActive="active" class="btn btn-success btn-sm">Create New</a>
+      </div>
+    </div>
+    <br />
+    <table style="border: 2px solid black" class="table table-striped table-bordered table-sm">
+      <tr style="border: 2px solid black">
+        <th style="border:2px solid black;" colspan="2">Name</th>
+        <th style="border:2px solid black;" colspan="5">Actions</th>
+      </tr>
+      <tr style="border: 2px solid black" *ngFor="let employeeObject of employees | paginate: { itemsPerPage: 5, currentPage: p }">
+        <td colspan="2" style="border:2px solid black;">{{ employeeObject.name }}</td>
+        <td colspan="5" style="border:2px solid black;" class="text-center">
+          <a href="#" routerLinkActive="active" [routerLink]="['/Employee/', employeeObject.id, 'details']" class="btn btn-info btn-sm">View</a> &nbsp;&nbsp;&nbsp;
+          <a href="#" routerLinkActive="active" [routerLink]="['/Employee/', employeeObject.id, 'edit']" class="btn btn-primary btn-sm">Edit</a> &nbsp;&nbsp;&nbsp;
+          <button type="button" (click)="deletePlayer(employeeObject.id)" class="btn btn-danger btn-sm">Delete</button> 
+        </td>
+      </tr>
+      <ul class="pagination">  
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>  
+    </ul>  
+    </table>
+  </div>
